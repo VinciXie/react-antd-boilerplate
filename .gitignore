@@ -1,0 +1,12 @@
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+# My configurations:
+dist
+build
+node_modules
+yarn.lock
