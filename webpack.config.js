@@ -53,9 +53,7 @@ const config = {
       debug: true
     }),
 
-
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 
   devServer: {
