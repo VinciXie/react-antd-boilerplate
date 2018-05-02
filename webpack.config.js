@@ -18,7 +18,7 @@ const config = {
   devtool: 'cheap-eval-source-map',
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
   },
 
@@ -42,20 +42,10 @@ const config = {
           ]
       },
 
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192
-            }
-          }
-        ]
-      }
-
     ]
   },
+
+  mode: 'development',
 
   plugins: [
 
@@ -69,7 +59,7 @@ const config = {
   ],
 
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'public'),
     compress: true,
     hot: true,
     port: 8888,

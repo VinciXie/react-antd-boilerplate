@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
 
-    context: path.join(__dirname, 'src'),
+    context: __dirname,
 
-    entry: "./main.js",
+    entry: "./src/main.js",
 
     module: {
       rules: [
@@ -44,9 +44,8 @@ const config = {
 
     plugins: [
         new HtmlWebpackPlugin({
-          inject: true,
           filename: "index.html",
-          template: "./index.html",
+          template: "public/index.html",
         }),
     ]
 }
