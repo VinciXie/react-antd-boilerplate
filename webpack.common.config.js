@@ -37,7 +37,7 @@ const config = {
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.scss', '.css'],
 
-      modules: ["node_modules"],
+      modules: ["libs", "node_modules"],
 
     },
 

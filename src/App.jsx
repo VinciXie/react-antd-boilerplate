@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader'
 
+import 'webuploader/webuploader.css'
+import WebUploader from 'webuploader'
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       fileList: [],
     };
+
+    this.startUpload = this.startUpload.bind(this)
   }
 
   componentDidMount() {
-    console.log('WebUploader', WebUploader);
+    // console.log('WebUploader', WebUploader);
     var uploader = WebUploader.create({
 
         // 文件接收服务端。
-        server: 'http://webuploader.duapp.com/server/fileupload.php',
+        server: 'http://localhost:3000/server/fileupload',
 
         // 选择文件的按钮。可选。
         // 内部根据当前运行是创建，可能是input元素，也可能是flash.
         pick: '#picker',
 
-        auto: true,
+        // auto: true,
+
+        chunked: true,
 
         // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
         resize: false
@@ -61,6 +68,11 @@ class App extends Component {
         $( '#'+file.id ).find('.progress').fadeOut();
     })
 
+    this.uploader = uploader
+  }
+
+  startUpload() {
+    this.uploader.upload()
   }
 
   render() {
@@ -68,7 +80,7 @@ class App extends Component {
       return (
         <li key={file.id} id={file.id}>
           name: {file.name}
-          <p className='state'>准备上传</p>
+          <p className='state'>{file.statusText || '准备上传'}</p>
           <div className='progress'>进度条</div>
         </li>
       )
@@ -80,7 +92,7 @@ class App extends Component {
             <div id="thelist" className="uploader-list"></div>
             <div className="btns">
                 <div id="picker">选择文件</div>
-                <button id="ctlBtn" className="btn btn-default">开始上传</button>
+                <button id="ctlBtn" onClick={this.startUpload} className="btn btn-default">开始上传</button>
             </div>
         </div>
         <ul>
