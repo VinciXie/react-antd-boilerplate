@@ -72,6 +72,7 @@ define([
                     xhr.send( binary );
                 }
             } else {
+              console.log('formData', formData);
                 xhr.send( formData );
             }
         },

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader'
+import { Upload, Icon, message } from 'antd';
+const Dragger = Upload.Dragger;
 
 import 'webuploader/webuploader.css'
 import WebUploader from 'webuploader'
+
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +35,6 @@ class App extends Component {
         // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
         resize: false
     })
-    console.log('uploader', uploader);
 
     uploader.on( 'fileQueued', file => {
       console.log('file', file);
@@ -40,6 +42,8 @@ class App extends Component {
         fileList: this.state.fileList.concat(file)
       })
       console.log('uploader', uploader);
+      const source = file.source.source
+      console.log('source', source);
     })
 
     uploader.on( 'uploadSuccess', file => {
@@ -95,6 +99,7 @@ class App extends Component {
                 <button id="ctlBtn" onClick={this.startUpload} className="btn btn-default">开始上传</button>
             </div>
         </div>
+
         <ul>
           {list}
         </ul>

@@ -101,6 +101,7 @@ define([
 
     // 负责将文件切片。
     function CuteFile( file, chunkSize ) {
+      console.log('file', file);
         var pending = [],
             blob = file.source,
             total = blob.size,
@@ -243,7 +244,7 @@ define([
                         file.setStatus( Status.PROGRESS );
                     });
 
-                    
+
                 } else if (file.getStatus() !== Status.PROGRESS) {
                     file.setStatus( Status.QUEUED );
                 }
