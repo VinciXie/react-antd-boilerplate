@@ -45,6 +45,7 @@ define([
                 xhr.open( opts.method, server, true );
                 xhr.withCredentials = true;
             } else {
+              console.log('server', server);
                 xhr.open( opts.method, server );
             }
 
@@ -72,7 +73,6 @@ define([
                     xhr.send( binary );
                 }
             } else {
-              console.log('formData', formData);
                 xhr.send( formData );
             }
         },
