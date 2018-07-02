@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const common = require('./webpack.common.config.js');
 
@@ -9,17 +10,17 @@ function sourceMapLoader(loaderName) {
   return {
     loader: loaderName,
     options: {
-      sourceMap: true
+      minimize: true
     }
   }
 }
 
 const config = {
-  devtool: 'cheap-eval-source-map',
+  // devtool: 'source-map',
 
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'build'),
+    filename: 'static/js/bundle-[hash:6].js'
   },
 
   module: {
@@ -28,7 +29,7 @@ const config = {
       {
           test: /\.css$/,
           use: [
-              'style-loader',
+              MiniCssExtractPlugin.loader,
               sourceMapLoader('css-loader')
           ]
       },
@@ -36,7 +37,7 @@ const config = {
       // {
       //     test: /\.less$/,
       //     use: [
-      //         'style-loader',
+      //         'MiniCssExtractPlugin.loader',
       //         sourceMapLoader('css-loader'),
       //         sourceMapLoader('less-loader')
       //     ]
@@ -45,24 +46,17 @@ const config = {
     ]
   },
 
-  mode: 'development',
+  mode: 'production',
 
   plugins: [
-
-    new webpack.LoaderOptionsPlugin({
-      debug: true
-    }),
-
-    new webpack.NamedModulesPlugin(),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "static/css/style-[hash:6].min.css",
+      // chunkFilename: "[id].css"
+    })
   ],
 
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    compress: true,
-    hot: true,
-    port: 8888,
-    index: 'index.html'
-  }
 }
 
 
