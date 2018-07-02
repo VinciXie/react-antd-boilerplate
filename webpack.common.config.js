@@ -5,7 +5,7 @@ const config = {
 
     context: __dirname,
 
-    entry: "./src/main.js",
+    entry: "./src/main.ts",
 
     module: {
       rules: [
@@ -16,11 +16,16 @@ const config = {
             use: [ 'babel-loader' ]
         },
 
+        {
+            test: /\.tsx?$/,
+            // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
+            use: [ "ts-loader" ],
+        }
       ]
     },
 
     resolve: {
-      extensions: ['.js', '.jsx', '.json', '.scss', '.css'],
+      extensions: ['.js', '.jsx', '.json', '.css', '.ts', '.tsx'],
 
       modules: ["node_modules"],
 
