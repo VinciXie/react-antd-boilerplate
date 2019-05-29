@@ -3,15 +3,19 @@
 
 import * as React from "react";
 import { render } from 'react-dom';
+import Hello from './components/Hello'
 
+interface Props {
 
-class App extends React.Component {
+}
+
+class App extends React.Component<Props> {
 
   render() {
     return (
       <div>
-        <h1>React App with ts</h1>
-        <div>react-hot-loader</div>
+        <Hello compiler="ts-loader" framework="react" />
+        <div>react-hot-loader111</div>
       </div>
     );
   }

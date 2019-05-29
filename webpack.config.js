@@ -48,11 +48,6 @@ const config = {
   mode: 'development',
 
   plugins: [
-
-    new webpack.LoaderOptionsPlugin({
-      debug: true
-    }),
-
     new webpack.NamedModulesPlugin(),
   ],
 
