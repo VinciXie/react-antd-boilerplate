@@ -1,20 +1,16 @@
 // import React, { Component } from 'react';
-// import { hot } from 'react-hot-loader'
+// import 'react-hot-loader'
 
 import * as React from "react";
 import { render } from 'react-dom';
-import Hello from './components/Hello'
 
-interface Props {
+const a = 1;
 
-}
-
-class App extends React.Component<Props> {
+class App extends React.Component {
 
   render() {
     return (
       <div>
-        <Hello compiler="ts-loader" framework="react" />
         <div>react-hot-loader111</div>
       </div>
     );
@@ -22,11 +18,7 @@ class App extends React.Component<Props> {
 
 }
 
-
-
 render(
   <App />,
   document.getElementById('app')
-)
-
-// export default hot(module)(App);
+);
