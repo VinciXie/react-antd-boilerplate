@@ -3,15 +3,18 @@
 
 import * as React from "react";
 import { render } from 'react-dom';
-
-const a = 1;
+import Hello from "./components/Hello";
+import styles from './components/style';
+// const a = 1;
 
 class App extends React.Component {
 
   render() {
     return (
       <div>
-        <div>react-hot-loader111</div>
+        <div>adadfadsfaf dfadsfasdf</div>
+        <div className={styles.aaa}>react-hot-loader111</div>
+        <Hello compiler="babel" framework="react" />
       </div>
     );
   }

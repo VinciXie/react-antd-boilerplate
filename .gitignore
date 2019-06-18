@@ -13,3 +13,6 @@ build
 node_modules
 yarn.lock
 *.log
+
+# IDE
+.vscode

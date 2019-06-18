@@ -28,8 +28,14 @@ const config = {
       {
           test: /\.css$/,
           use: [
-              'style-loader',
-              sourceMapLoader('css-loader')
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                modules: true
+              }
+            }
           ]
       },
 
