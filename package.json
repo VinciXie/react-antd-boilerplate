@@ -6,7 +6,7 @@
   "author": "vincixie",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --hot",
+    "start": "webpack-dev-server --hot --open",
     "build": "webpack --config ./webpack.prod.config.js",
     "test": "jest"
   },

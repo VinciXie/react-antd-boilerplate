@@ -54,6 +54,10 @@ const config = {
 
   plugins: [
     new webpack.NamedModulesPlugin(),
+    new webpack.DllReferencePlugin({
+			context: path.join(__dirname),
+			manifest: require("./dll/reactLibs-manifest.json") // eslint-disable-line
+		}),
   ],
 
   devServer: {

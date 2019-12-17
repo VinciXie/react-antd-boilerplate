@@ -1,5 +1,5 @@
-module.exports = {
-  "parser": '@typescript-eslint/parser',
+{
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb",
     // "plugin:@typescript-eslint/recommended",
@@ -9,12 +9,12 @@ module.exports = {
     "prettier/react"
   ],
   "plugins": [
-    '@typescript-eslint',
+    "@typescript-eslint",
     "prettier",
     "import",
     "css-modules",
     "react",
-    "react-hooks",
+    "react-hooks"
   ],
   "parserOptions": {
     "ecmaVersion": 7,
@@ -35,19 +35,19 @@ module.exports = {
   "overrides": [
     // 测试文件
     {
-      files: ['*.{spec,test}.{ts,tsx}', '**/__tests__/**/*.{ts,tsx}'],
-      plugins: [
-        'jest',
+      "files": ["*.{spec,test}.{ts,tsx}", "**/__tests__/**/*.{ts,tsx}"],
+      "plugins": [
+        "jest"
       ],
-      env: {
-        jest: true,
+      "env": {
+        "jest": true
       },
-      globals: {
-        page: true,
-        browser: true,
-        context: true,
-        jestPuppeteer: true,
-      },
-    },
-  ],
+      "globals": {
+        "page": true,
+        "browser": true,
+        "context": true,
+        "jestPuppeteer": true
+      }
+    }
+  ]
 }
