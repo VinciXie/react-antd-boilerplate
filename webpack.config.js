@@ -54,9 +54,10 @@ const config = {
 
   plugins: [
     new webpack.NamedModulesPlugin(),
+    // Time: 2706ms; bundle.js 963 KiB
     new webpack.DllReferencePlugin({
 			context: path.join(__dirname),
-			manifest: require("./dll/reactLibs-manifest.json") // eslint-disable-line
+			manifest: require("./dll/reactLibs-manifest.json")
 		}),
   ],
 
@@ -68,7 +69,6 @@ const config = {
     index: 'index.html'
   }
 }
-
 
 
 module.exports = merge(common, config);
